@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-
+import { isPlatformBrowser } from '@angular/common';
 export interface Task {
   id: number;
   name: string;
@@ -17,20 +17,25 @@ export interface Project {
 @Injectable({
   providedIn: 'root',
 })
-export class TaskService {
+export class TaskService implements OnInit {
   private projectsSubject: BehaviorSubject<Project[]>;
   private localStorageKey = 'projects';
 
   private defaultProjects: Project[] = [
     { id: 1, name: 'Beautifull Uttrakhand Project', tasks: [] },
-    { id: 2, name: 'Bgmi', tasks: [] }
+    { id: 2, name: 'Bgmi', tasks: [] },
   ];
 
-  constructor() {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     const savedProjects = this.loadProjectsFromLocalStorage();
     this.projectsSubject = new BehaviorSubject<Project[]>(savedProjects);
   }
-
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      const token = localStorage.getItem('token'); // Replace with your actual key
+      console.log(token);
+    }
+  }
   private loadProjectsFromLocalStorage(): Project[] {
     const storedProjects = localStorage.getItem(this.localStorageKey);
     if (storedProjects) {
@@ -52,16 +57,16 @@ export class TaskService {
   }
 
   getProjectById(id: number): Project | undefined {
-    return this.projectsSubject.value.find(project => project.id === id);
+    return this.projectsSubject.value.find((project) => project.id === id);
   }
 
   addTask(projectId: number, task: Task) {
     const currentProjects = this.projectsSubject.value;
-    const updatedProjects = currentProjects.map(project => {
+    const updatedProjects = currentProjects.map((project) => {
       if (project.id === projectId) {
         return {
           ...project,
-          tasks: [...project.tasks, task]
+          tasks: [...project.tasks, task],
         };
       }
       return project;
@@ -73,11 +78,11 @@ export class TaskService {
 
   updateTask(project: Project, taskId: number, updatedTask: Task) {
     const currentProjects = this.projectsSubject.value;
-    const updatedProjects = currentProjects.map(p => {
+    const updatedProjects = currentProjects.map((p) => {
       if (p.id === project.id) {
         return {
           ...p,
-          tasks: p.tasks.map(t => t.id === taskId ? updatedTask : t)
+          tasks: p.tasks.map((t) => (t.id === taskId ? updatedTask : t)),
         };
       }
       return p;
@@ -89,11 +94,11 @@ export class TaskService {
 
   deleteTask(project: Project, taskId: number) {
     const currentProjects = this.projectsSubject.value;
-    const updatedProjects = currentProjects.map(p => {
+    const updatedProjects = currentProjects.map((p) => {
       if (p.id === project.id) {
         return {
           ...p,
-          tasks: p.tasks.filter(t => t.id !== taskId)
+          tasks: p.tasks.filter((t) => t.id !== taskId),
         };
       }
       return p;

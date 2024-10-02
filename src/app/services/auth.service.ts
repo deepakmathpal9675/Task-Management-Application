@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 
 interface User {
@@ -13,7 +15,9 @@ interface User {
 })
 export class AuthService {
   
-  // constructor() {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object){
+   
+  }
 
   login(username: string, password: string): boolean {
     if (username === 'admin' && password === 'password') {
@@ -28,6 +32,9 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return localStorage.getItem('auth') === 'true';
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem('auth') === 'true';
+    }
+    return false; 
   }
 }

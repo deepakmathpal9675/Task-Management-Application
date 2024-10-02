@@ -10,7 +10,7 @@
                 <label for="password">Password</label>
                 <input appBlockPaste type="password" id="password" name="password" autocomplete="off" [(ngModel)]="password" required>
             </div>
-            <button type="submit" (click)="onLogin(loginForm)">Login</button>
+            <button type="submit" (click)="onLogin(loginForm)" [disabled]="(username ==null || username == '' || !(username.toString().length >0)) || (password ==null || password == '' || !(password.toString().length >0))">Login</button>
             <p class="message">Don't have an account? <a href="#">Sign up</a></p>
             <button type="button" (click)="showInstallPrompt()">Install App</button>
         </form>
