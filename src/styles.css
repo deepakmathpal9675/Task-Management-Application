@@ -5,6 +5,3 @@
     border-radius: var(--mdc-snackbar-container-shape, var(--mat-app-corner-extra-small));
     background-color: #71a268 !important;
 }
-/* .mat-grid-tile-content{
-    align-items: self-start !important;
-} */
