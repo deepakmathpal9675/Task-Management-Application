@@ -35,10 +35,14 @@ export class LoginComponent implements OnInit{
     private notify: NotificationService
   ) {}
   ngOnInit() {
-    window.addEventListener('beforeinstallprompt', (event) => {
-      event.preventDefault();
-      this.deferredPrompt = event;
-    });
+    if (typeof window !== 'undefined') {
+      // Safe to use window
+      window.addEventListener('beforeinstallprompt', (event) => {
+        event.preventDefault();
+        this.deferredPrompt = event;
+      });
+    }
+    
   }
   
   onLogin(form: NgForm) {
