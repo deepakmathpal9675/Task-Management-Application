@@ -6,7 +6,6 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 interface User {
   email: string;
   password: string;
-  // add other user properties as needed
 }
 
 @Injectable({

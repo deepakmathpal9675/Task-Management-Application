@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -23,42 +23,43 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   username: string = '';
   password: string = '';
   title = 'Task Management Application';
+  private deferredPrompt: any;
+  
   constructor(
     private authService: AuthService,
     private router: Router,
     private notify: NotificationService
   ) {}
+  ngOnInit() {
+    window.addEventListener('beforeinstallprompt', (event) => {
+      event.preventDefault();
+      this.deferredPrompt = event;
+    });
+  }
   
-  // onLogin(form: NgForm) {
-  //   debugger;
-  //   this.username = form.value.username.toUpperCase();
-  //   this.password = form.value.password.toUpperCase();
-
-  //   // if (this.username == 'ADMIN' &&this.password == 'PASSWORD' ) {
-  //     if (this.authService.login(this.username, this.password)) {
-  //       this.router.navigate(['/dashboard']);
-  //     } else {
-  //       alert('Invalid credentials');
-  //     }
-  //   }
-  // //   else {
-  // //     alert('Invalid credentials');
-  // //   }
-  // // }
   onLogin(form: NgForm) {
-    // this.username = form.value.username;
-    // this.password = form.value.password;
     if (this.authService.login(this.username, this.password)) {
-      // this.router.navigate(['/dashboard']);
-      // this.toastr.success('success','')
       this.notify.openSnackBar('Login successful!', 'Close');
       this.router.navigate(['/dashboard']);
     } else {
       alert('Invalid credentials');
+    }
+  }
+  showInstallPrompt() {
+    if (this.deferredPrompt) {
+      this.deferredPrompt.prompt();
+      this.deferredPrompt.userChoice.then((choiceResult: any) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the install prompt');
+        } else {
+          console.log('User dismissed the install prompt');
+        }
+        this.deferredPrompt = null;
+      });
     }
   }
 }

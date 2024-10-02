@@ -44,11 +44,9 @@ export const MY_DATE_FORMATS = {
 };
 
 @NgModule({
-  declarations: [
-    // NavbarComponent,
-    // DashboardComponent,
-    // ProjectDetailComponent,TranslateModul
-  ],
+  declarations: [	
+
+   ],
   imports: [
     NavbarComponent,
     BrowserModule,

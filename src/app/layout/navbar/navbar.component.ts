@@ -42,15 +42,9 @@ export class NavbarComponent implements OnInit{
     console.log(this.isMenuActive)
   }
   logout() {
-    this.notify.openSnackBar('Logout successful!', 'Close')
-    this.authService.logout()
-    // Clear the user token from local storage
+    this.notify.openSnackBar('Logout successful!', 'Close');
+    this.authService.logout();
     localStorage.removeItem('userToken');
-
-    // Optionally, clear any other user-related data
-    //localStorage.removeItem('user'); // Adjust based on your implementation
-
-    // Redirect to the login page
     this.router.navigate(['/login']);
   }
 }

@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit{
   newProjectName: string = '';
   editProjectId: number | null = null;
   editProjectName: string = '';
-  sortCriteria: string = 'priority'; // Default sort criteria
+  sortCriteria: string = 'priority';
   
   constructor(private projectService: ProjectService,private route: ActivatedRoute, private taskService: TaskService) {}
 

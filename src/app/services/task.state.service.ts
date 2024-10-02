@@ -21,10 +21,6 @@ export class TaskStateService {
   }
 
   updateTask(updatedTask: Task) {
-    // const currentTasks = this.tasksSubject.value.map(task =>
-    //   task.id === updatedTask.id ? updatedTask : task
-    // );
-    // this.tasksSubject.next(currentTasks);
   }
 
   deleteTask(id: number) {
