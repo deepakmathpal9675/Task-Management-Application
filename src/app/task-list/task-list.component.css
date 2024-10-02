@@ -1,0 +1,87 @@
+th, td {
+    padding: 10px; /* Adjust the value as needed */
+    text-align: left; /* Optional: aligns text to the left */
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .form-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .task-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 16px;
+    height: 35px;
+  }
+  
+  .date-picker {
+    flex: 1;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .sort-container {
+    text-align: center;
+  }
+  
+  .sort-select {
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 16px;
+  }
+  .table-container {
+    height: 150px;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+  table {
+    width: 100%; /* Ensure table takes the full width */
+    border-collapse: collapse; /* Optional: For better table styling */
+  }
+  
+  th, td {
+    padding: 8px; /* Adjust padding as needed */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #ddd; /* Optional: Add bottom border */
+  }
+  .field-required{
+    box-shadow: 1px 0px 9px 1px #ca161f !important;
+    height: auto ;
+}
+button:disabled,
+button[disabled]:hover{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}

@@ -1,0 +1,184 @@
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: all 0.3s ease;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 0.7rem;
+    border: none;
+    background-color: #5cb85c;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+.message {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.message a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+@media (max-width: 400px) {
+    .login-form {
+        width: 90%;
+    }
+} */
+
+/* Combined Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("/src/assests/images/taskmngmnt.jpg");
+  background-size: cover; /* Use cover to ensure it fills the screen */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent repeating the image */
+  margin: 0; /* Remove default margin */
+  height: 100vh; /* Full height to cover the viewport */
+}
+
+/* Container Styles */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Login Form Styles */
+.login-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: all 0.3s ease;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 0.7rem;
+  border: none;
+  background-color: #5cb85c;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4cae4c;
+}
+
+.message {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.message a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+  body {
+    background-size: contain; /* Use contain for smaller screens */
+    padding: 20px; /* Add padding for better spacing */
+  }
+
+  .login-form {
+    width: 90%; /* Responsive width for small screens */
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    padding: 10px; /* Less padding for very small screens */
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    padding: 40px; /* Increase padding for medium screens */
+  }
+}
+
+@media (min-width: 1025px) {
+  body {
+    padding: 50px; /* Provide more space on larger screens */
+  }
+}
+h3{
+  text-align: center;
+}

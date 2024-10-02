@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+.mat-mdc-snack-bar-container .mat-mdc-snackbar-surface {
+    color: var(--mdc-snackbar-supporting-text-color, var(--mat-app-inverse-on-surface));
+    border-radius: var(--mdc-snackbar-container-shape, var(--mat-app-corner-extra-small));
+    background-color: #71a268 !important;
+}
+/* .mat-grid-tile-content{
+    align-items: self-start !important;
+} */

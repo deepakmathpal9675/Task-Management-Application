@@ -1,0 +1,49 @@
+<h2 class="header">Tasks for {{ project.name }}</h2>
+<div class="form-container">
+  <input class="task-input" [(ngModel)]="newTask" placeholder="Task name" 
+  />
+  <mat-form-field class="date-picker" >
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="newDeadline" disabled 
+    >
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker">
+      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+    </mat-datepicker-toggle>
+    <mat-datepicker #picker disabled="false"></mat-datepicker>
+  </mat-form-field>
+</div>
+<button type="button" class="submit-button" (click)="editTaskIndex !== null ? updateTask() : addTask()" [disabled]="(newTask ==null || newTask == '' || !(newTask.toString().length >0)) || (newDeadline ==null || newDeadline == '' || !(newDeadline.toString().length >0)) ">
+  {{ editTaskIndex !== null ? 'Update Task' : 'Add Task' }}
+</button>
+<div class="sort-container">
+  <label>Sort by:</label>
+  <select class="sort-select" (change)="sortTasks($event)">
+    <option value="priority">Priority</option>
+    <option value="deadline">Deadline</option>
+  </select>
+</div>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Task Name</th>
+        <th>Priority</th>
+        <th>Deadline</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of project.tasks; let i = index">
+        <td>{{ task.name }}</td>
+        <td>{{ task.priority }}</td>
+        <td>{{ task.deadline | date }}</td>
+        <td>
+          <button (click)="editTask(i)">Edit</button>
+          <button (click)="deleteTask(task.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  

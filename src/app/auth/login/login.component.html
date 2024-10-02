@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+    <div class="container">
+        <form class="login-form" #loginForm="ngForm" novalidate (keyup.enter)="onLogin(loginForm)">
+            <h3>Login</h3>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" autofocus="true" autocomplete="off" [(ngModel)]="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input appBlockPaste type="password" id="password" name="password" autocomplete="off" [(ngModel)]="password" required>
+            </div>
+            <button type="submit" (click)="onLogin(loginForm)">Login</button>
+            <p class="message">Don't have an account? <a href="#">Sign up</a></p>
+        </form>
+    </div>

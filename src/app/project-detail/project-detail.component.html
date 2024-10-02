@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+<!-- 
+<form class="newTask-form" #newTaskForm="ngForm">
+<div class="project-detail">
+    <h2>{{ project.name }}</h2>
+    <h3>Tasks</h3>
+    
+    <input [(ngModel)]="newTask" placeholder="Add a new task" type="text" id="newTask" name="newTask" autocomplete="off" />
+    {{ newTask }} 
+    <button type="button" (click)="addTask()">Add Task</button>
+    <button (click)="editTaskIndex !== null ? updateTask() : addTask()">
+      {{ editTaskIndex !== null ? 'Update Task' : 'Add Task' }}
+    </button>
+
+    <div>
+      <label>Sort by:</label>
+        <select (change)="sortTasks($event)">
+        <option value="priority">Priority</option>
+        <option value="deadline">Deadline</option>
+      </select>
+    </div>
+  
+    <ul>
+      <li *ngFor="let task of project.tasks">
+        {{ task.name }} - Priority: {{ task.priority }} - Deadline: {{ task.deadline }}
+        <button (click)="editTask(task.id)">Edit</button>
+        <button (click)="deleteTask(task.id)">Delete</button>
+      </li>
+    </ul>
+    
+  </div>
+</form> -->
+<!-- <div>
+  <h1>Project Details: {{ project.name }}</h1>
+  <app-task-list [project]="project"></app-task-list>
+</div> 
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Project Details: {{ project.name }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-task-list [project]="project"></app-task-list>
+  </mat-card-content>
+</mat-card>
+-->
+<mat-grid-list cols="2" rowHeight="1:1" class="mat-2x">
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Project Details :</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        
+        <p>Name: {{ project.name }}</p>
+
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title class="card-title">Task List</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <app-task-list [project]="project"></app-task-list>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
