@@ -8,7 +8,7 @@
       <span class="example-spacer"></span>
       <div fxShow="true" fxHide.lt-md="true">
 
-        <a href="http://localhost:4200/dashboard/#" mat-button>
+        <a (click)="home()" mat-button>
           <mat-icon>home</mat-icon>
           Dashboard
         </a>
@@ -24,7 +24,7 @@
   <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav>
       <mat-nav-list>
-        <a href="http://localhost:4200/dashboard/#" mat-list-item>
+        <a (click)="home()" mat-list-item>
           <mat-icon>home</mat-icon>
           Dashboard
         </a>

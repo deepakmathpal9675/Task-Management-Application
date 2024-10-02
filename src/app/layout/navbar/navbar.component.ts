@@ -47,4 +47,7 @@ export class NavbarComponent implements OnInit{
     localStorage.removeItem('userToken');
     this.router.navigate(['/login']);
   }
+  home(){
+    this.router.navigate(['/dashboard']);
+  }
 }
