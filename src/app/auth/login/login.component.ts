@@ -58,12 +58,16 @@ export class LoginComponent implements OnInit{
       this.deferredPrompt.prompt();
       this.deferredPrompt.userChoice.then((choiceResult: any) => {
         if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the install prompt');
+          
         } else {
-          console.log('User dismissed the install prompt');
+         
         }
         this.deferredPrompt = null;
       });
     }
+  }
+
+  onSignUp(){
+    this.notify.openSnackBar('Coming Soon!', 'Close');
   }
 }
